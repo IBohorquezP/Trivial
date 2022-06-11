@@ -16,5 +16,5 @@ class User:
             # Read a single record
             sql = "SELECT * FROM user"
             cursor.execute(sql)
-            result = cursor.fetchone()
+            result = cursor.fetchall()
             return result
