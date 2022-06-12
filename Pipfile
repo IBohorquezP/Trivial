@@ -9,6 +9,7 @@ uvicorn = {extras = ["standard"], version = "*"}
 pymysql = "*"
 cryptography = "*"
 jinja2 = "*"
+python-dotenv = "*"
 
 [dev-packages]
 

@@ -1,9 +1,13 @@
+<<<<<<< HEAD
 import os
 import mysql.connector
+=======
+import pymysql.cursors
+>>>>>>> c21a4ca8de2607e9ed5fd4b8f7e032212c0af885
 
-from dotenv import load_dotenv
-from pathlib import Path
+from dotenv import dotenv_values
 
+<<<<<<< HEAD
 load_dotenv(Path("../.env"))
 
 credentials = { 
@@ -19,4 +23,15 @@ database = mysql.connector.connect(
     user=credentials["user"],
     password=credentials["password"],
     database=credentials["database"],
+=======
+credentials = dotenv_values()
+
+# Connect to the database
+database = pymysql.connect(
+    host=credentials["DB_HOST"],
+    user=credentials["DB_USER"],
+    password=credentials["DB_PASSWORD"],
+    database=credentials["DB_NAME"],
+    cursorclass=pymysql.cursors.DictCursor
+>>>>>>> c21a4ca8de2607e9ed5fd4b8f7e032212c0af885
 )
