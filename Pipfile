@@ -8,6 +8,7 @@ fastapi = "*"
 uvicorn = {extras = ["standard"], version = "*"}
 pymysql = "*"
 cryptography = "*"
+jinja2 = "*"
 
 [dev-packages]
 
