@@ -3,27 +3,14 @@
 {% block title %}Login{% endblock %}
 
 {% block customCSS %}
-<link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+<link rel="stylesheet" href="{{ url_for('css', path='/login.css') }}">
 {% endblock %}
 
 {% block body %}
 <form class="form-signin" action="/login" method="POST">
-    <img class="mb-4" src="{{ url_for('static', filename='img/TrivialFunny.png') }}" alt="" width="200" height="180">
-    {% with messages = get_flashed_messages() %}
-
-    {% if messages %}
-    <br />
-    {% for message in messages %}
-    <div class="alert alert-primary alert-dismissible" role="alert">
-        <strong>{{ message }}</strong>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
-    {% endfor %}
-    {% endif %}
-
-    {% endwith %}
+    <img class="mb-4" src="{{ url_for('img', path='/TrivialFunny.png') }}" alt="" width="200" height="180">
     <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
-    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+    <input type="hidden" name="csrf_token">
     <div class="form-floating">
         <input type="text" class="form-control" id="username" name="username" placeholder="Username">
         <label for="username">Username</label>
