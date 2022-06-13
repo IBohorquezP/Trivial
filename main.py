@@ -16,3 +16,7 @@ app.include_router(user)
 @app.get("/", response_class=HTMLResponse)
 async def read_item(request: Request):
     return templates.TemplateResponse("login.html", {"request": request, "id": 1})
+
+@app.get("/character", response_class=HTMLResponse)
+async def read_item(request: Request):
+    return templates.TemplateResponse("character.html", {"request": request, "id": 1})

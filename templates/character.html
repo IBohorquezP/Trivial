@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewpor t" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('css', path='/login.css') }}">
+    <title>Select Game Character</title>
+</head>
+<body>
+    {% block customCSS %}
+    <link rel="stylesheet" href="{{ url_for('css', path='/character.css') }}">
+    {% endblock %}
+<h1>CHOOSE YOUR CHARACTER</h1>
+    <div class="container">
+        <div class="card">
+            <div class="card-image">
+                <img src="/img/Kirby.png" alt="character">
+            </div>
+
+            <div class="card-body">
+                <span class="power">Kirby's Saga</span>
+                <h2>KIRBY</h2>
+            </div>
+
+
+            <div class="selector">
+                <button>go with this!</button>
+            </div>
+
+        </div>
+
+        <div class="card">
+            <div class="card-image">
+                <img src="/img/Link.png" alt="character">
+            </div>
+
+            <div class="card-body">
+                <span class="power">The Legend of Zelda</span>
+                <h2>LINK</h2> 
+            </div>
+
+            <div class="selector">
+                <button>go with this!</button>
+            </div>
+
+        </div>
+
+        <div class="card">
+            <div class="card-image">
+                <img src="/img/Mario.png" alt="character">
+            </div>
+
+            <div class="card-body">
+                <span class="power">Super Mario</span>
+                <h2>MARIO</h2>
+            </div>
+
+            
+            <div class="selector">
+                <button>go with this!</button>
+            </div>
+
+        </div>
+
+        <div class="card">
+            <div class="card-image">
+                <img src="/img/Pikachu.png" alt="character">
+            </div>
+
+            <div class="card-body">
+                <span class="power">Pokémon</span>
+                <h2>PIKACHU</h2>
+            </div>
+
+         
+            <div class="selector">
+                <button>go with this!</button>
+            </div>
+
+        </div>
+    </div>
+    
+</body>
+</html>
