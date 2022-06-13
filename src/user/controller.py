@@ -33,7 +33,7 @@ async def index_users():
 async def login(request: Request, username: str = Form(), password: str = Form()):
     is_authenticated = User.login(username,password)
     if (is_authenticated):
-        return templates.TemplateResponse("home.html", {"request": request, "id": 1})
+        return templates.TemplateResponse("character.html", {"request": request, "id": 1})
     return templates.TemplateResponse("login.html", {
         "request": request,
         "username": username,
