@@ -20,3 +20,8 @@ async def read_item(request: Request):
 @app.get("/character", response_class=HTMLResponse)
 async def read_item(request: Request):
     return templates.TemplateResponse("character.html", {"request": request, "id": 1})
+
+@app.get("/statistics", response_class=HTMLResponse)
+async def statistics(request: Request):
+    return templates.TemplateResponse("statistics.html", {"request": request, "id": 1})
+
