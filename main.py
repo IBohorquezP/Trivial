@@ -18,3 +18,7 @@ app.include_router(user)
 @app.get("/", response_class=HTMLResponse)
 async def read_item(request: Request):
     return templates.TemplateResponse("login.html", {"request": request, "id": 1})
+
+@app.get("/statistics", response_class=HTMLResponse)
+async def statistics(request: Request):
+    return templates.TemplateResponse("statistics.html", {"request": request, "id": 1})

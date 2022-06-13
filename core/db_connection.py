@@ -3,7 +3,6 @@ import pymysql.cursors
 from dotenv import dotenv_values
 
 credentials = dotenv_values()
-
 # Connect to the database
 database = pymysql.connect(
     host=credentials["DB_HOST"],
