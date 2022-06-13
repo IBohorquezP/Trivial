@@ -1,6 +1,8 @@
 from fastapi import FastAPI, Request
 from fastapi.responses import HTMLResponse
 from src.user.controller import router as user
+from src.character.model import Character
+
 from src.character.controller import router as character
 from fastapi.staticfiles import StaticFiles
 from core.front import templates
@@ -21,7 +23,7 @@ async def read_item(request: Request):
 
 @app.get("/character", response_class=HTMLResponse)
 async def character(request: Request):
-    return templates.TemplateResponse("character.html", {"request": request, "id": 1})
+    return templates.TemplateResponse("character.html", {"request": request, "Character": Character.index()})
 
 @app.get("/statistics", response_class=HTMLResponse)
 async def statistics(request: Request):

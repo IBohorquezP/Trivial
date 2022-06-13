@@ -13,10 +13,14 @@
     <link rel="stylesheet" href="{{ url_for('css', path='/login.css') }}">
     {% endblock %}
     <h1>CHOOSE YOUR CHARACTER</h1>
+
     <div class="container">
+        
+        {{ Character }}
+        {% for C in Character %}
         <div class="card">
             <div class="card-image">
-                <img src="/img/Kirby.png" alt="character">
+                <img src="{{C.skin_character}}" alt="character">
             </div>
 
             <div class="card-body">
@@ -30,6 +34,7 @@
             </div>
 
         </div>
+        {% endfor %}
 
         <div class="card">
             <div class="card-image">
