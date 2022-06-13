@@ -5,6 +5,7 @@
     <meta name="viewpor t" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('css', path='/character.css') }}">
+    <link rel="stylesheet" href="{{ url_for('css', path='/bootstrap.min.css') }}">
     <title>Select Game Character</title>
 </head>
 <body>
@@ -13,27 +14,27 @@
 
     {% endblock %}
     <h1>CHOOSE YOUR CHARACTER</h1>
-
+    
     <div class="container">
-        {% for c in characters %}    
-        <div class="card">
-            <div class="card-image">
-                <img src="{{c.skin_character}}" alt="character">
+        <div class="row">
+            {% for c in characters %}    
+            <div class="card">
+                <div class="card-image">
+                    <img src="{{c.skin_character}}" alt="character">
+                </div>
+                <div class="card-body">
+                    <h2>{{c.id_character}}</h2>
+                </div>
+                <div class="selector">
+                    <button>go with this!</button>
+                </div>
+    
             </div>
-            <div class="card-body">
-                <h2>{{c.id_character}}</h2>
-            </div>
-            <div class="selector">
-                <button>go with this!</button>
-            </div>
-
+            {% endfor %}
         </div>
-        {% endfor %}    
-            <div class="selector">
-                <button>go with this!</button>
-            </div>
-        <div class="row align-items-center justify-content-xl-between">
-            <div class="col-xl-6 m-auto text-center">
+       
+        <div class="row align-items-center justify-content-xl-between mt-5">
+            <div class="col-xl-12 m-auto text-center">
               <div class="copyright">
                 <a href="{{url_for('statistics')}}">Go to Player Statistics</a>
               </div>
