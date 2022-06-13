@@ -23,7 +23,8 @@ async def read_item(request: Request):
 
 @app.get("/character", response_class=HTMLResponse)
 async def character(request: Request):
-    return templates.TemplateResponse("character.html", {"request": request, "Character": Character.index()})
+    print(Character.index())
+    return templates.TemplateResponse("character.html", {"request": request, "characters": Character.index(), "id": 1})
 
 @app.get("/statistics", response_class=HTMLResponse)
 async def statistics(request: Request):

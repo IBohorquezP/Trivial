@@ -1,5 +1,7 @@
 from fastapi.responses import HTMLResponse
 from fastapi import APIRouter, Form, Request
+
+from src.character.model import Character
 from .model import User
 from core.front import templates
 
@@ -33,7 +35,7 @@ async def index_users():
 async def login(request: Request, username: str = Form(), password: str = Form()):
     is_authenticated = User.login(username,password)
     if (is_authenticated):
-        return templates.TemplateResponse("character.html", {"request": request, "id": 1})
+        return templates.TemplateResponse("character.html", {"request": request, "characters": Character.index(), "id": 1})
     return templates.TemplateResponse("login.html", {
         "request": request,
         "username": username,
