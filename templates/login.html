@@ -1,6 +1,6 @@
 {% extends './base.html' %}
 
-{% block title %}Login{% endblock %}
+{% block title %}Register{% endblock %}
 
 {% block customCSS %}
 <link rel="stylesheet" href="{{ url_for('css', path='/login.css') }}">
@@ -8,7 +8,7 @@
 
 {% block body %}
 <form class="form-signin" action="/login" method="POST">
-    <img class="mb-4" src="{{ url_for('img', path='/LogoTrivial2.png') }}" alt="" width="300" height="150">
+    <img class="mb-4" src="{{ url_for('img', path='/aaa.jpg') }}" alt="" width="300" height="300">
     <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
     <div class="form-floating">
         <input type="text" class="form-control" id="username" name="username" placeholder="Username">
@@ -17,6 +17,10 @@
     <div class="form-floating mt-2">
         <input type="password" class="form-control" name="password" placeholder="Password">
         <label for="password">Password</label>
+
+        
+        <a href="{{url_for('register')}}">Go to registration</a>
+
     </div>
     <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
 </form>
