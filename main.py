@@ -1,6 +1,7 @@
 from fastapi import FastAPI, Request
 from fastapi.responses import HTMLResponse
 from src.user.controller import router as user
+from src.character.controller import router as character
 from fastapi.staticfiles import StaticFiles
 from core.front import templates
 
@@ -12,6 +13,7 @@ app.mount("/img", StaticFiles(directory="static/img"), name="img")
 
 
 app.include_router(user)
+app.include_router(character)
 
 @app.get("/", response_class=HTMLResponse)
 async def read_item(request: Request):
