@@ -1,4 +1,4 @@
-from http.client import HTTPResponse
+from fastapi.responses import HTMLResponse
 from fastapi import APIRouter, Form, Request
 from .model import User
 from core.front import templates
@@ -29,7 +29,7 @@ async def index_users():
 # async def delete_user(id):
 #     return User.delete(id)
 
-@router.post("/login",  response_class=HTTPResponse)
+@router.post("/login",  response_class=HTMLResponse)
 async def login(request: Request, username: str = Form(), password: str = Form()):
     is_authenticated = User.login(username,password)
     if (is_authenticated):
