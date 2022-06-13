@@ -1,166 +1,115 @@
-<html>
+<DOCTYPE html>
+    <html lang="es">
+    <head>
+            <meta charset="utf-8"/>
+            <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    
+            <link rel="stylesheet" type="text/css" href="{{ url_for('css', path='/estilos.css') }}">
+    
+            <script type="text/javascript" src="js/jquery.js"></script>
+            <script type="text/javascript" src="js/ajedrez.js"></script>
+            <script type="text/javascript" src="js/jquery-ui-1.9.2.custom.min.js"></script>
+            <script type="text/javascript" src="js/touch.js"></script>	
+            <link rel="stylesheet" type="text/css" href="{{ url_for('css', path='/jquery-ui-1.9.2.custom.min.css') }}">
+            <title>Trivial</title>
+    </head>
+    
+    <body>
+        <div id="tablero" >
+            <div id="18" class="negra" value="vacia"></div>
+            <div id="28" class="negra" value="vacia"></div>
+            <div id="38" class="negra" value="vacia"></div>
+            <div id="48" class="negra" value="vacia"></div>
+            <div id="58" class="negra" value="vacia"></div>
+            <div id="68" class="negra" value="vacia"></div>
+            <div id="78" class="negra" value="vacia"></div>
+            <div id="88" class="blanca" value="vacia">
+                <img src='img/equisroja.png' class='ficha torre fBlanca torreB'>
+            </div>	
+            <br />
+            <div id="17" class="negra" value="vacia"></div>
+            <div id="27" class="negra" value="vacia"></div>
+            <div id="37" class="negra" value="vacia"></div>
+            <div id="47" class="negra" value="vacia"></div>
+            <div id="57" class="negra" value="vacia"></div>
+            <div id="67" class="negra" value="vacia"></div>
+            <div id="77" class="negra" value="vacia"></div>
+            <div id="87" class="verde" value="vacia"> </div>	
+            <br />
+            <div id="16" class="amarilla" value="vacia"> </div>
+            <div id="26" class="azul" value="vacia"> </div>
+            <div id="36" class="roja" value="vacia"> </div>
+            <div id="46" class="negra" value="vacia"> </div>
+            <div id="56" class="roja" value="vacia"> </div>
+            <div id="66" class="amarilla" value="vacia"> </div>
+            <div id="76" class="verde" value="vacia"> </div>
+            <div id="86" class="azul" value="vacia"> </div>	
+            <br />
+            <div id="15" class="azul" value="vacia"> </div>
+            <div id="25" class="negra" value="vacia"> </div>
+            <div id="35" class="azul" value="vacia"> </div>
+            <div id="45" class="negra" value="vacia"> </div>
+            <div id="55" class="verde" value="vacia"> </div>
+            <div id="65" class="negra" value="vacia"> </div>
+            <div id="75" class="negra" value="vacia"> </div>
+            <div id="85" class="negra" value="vacia"> </div>	
+            <br />
+            <div id="14" class="verde" value="vacia"> </div>
+            <div id="24" class="negra" value="vacia"> </div>
+            <div id="34" class="roja" value="vacia"> </div>
+            <div id="44" class="negra" value="vacia"> </div>
+            <div id="54" class="amarilla" value="vacia"> </div>
+            <div id="64" class="negra" value="vacia"> </div>
+            <div id="74" class="negra" value="vacia"> </div>
+            <div id="84" class="negra" value="vacia"> </div>	
+            <br />
+            <div id="13" class="azul" value="vacia"> </div>
+            <div id="23" class="negra" value="vacia"> </div>
+            <div id="33" class="verde" value="vacia"> </div>
+            <div id="43" class="negra" value="vacia"> </div>
+            <div id="53" class="azul" value="vacia"> </div>
+            <div id="63" class="negra" value="vacia"> </div>
+            <div id="73" class="negra" value="vacia"> </div>
+            <div id="83" class="negra" value="vacia"> </div>	
+            <br />
+            <div id="12" class="roja" value="ocupada">
+                <!--   <img src='img/peonB.png' class='ficha peonB fBlanca ' value='false'>-->
+             </div>
+            <div id="22" class="negra" value="vacia"></div>
+            <div id="32" class="amarilla" value="vacia"></div>
+            <div id="42" class="negra" value="vacia"></div>
+            <div id="52" class="amarilla" value="vacia"></div>
+            <div id="62" class="negra" value="vacia"></div>
+            <div id="72" class="negra" value="vacia"></div>
+            <div id="82" class="negra" value="vacia"></div>	
+            <br />
+            <div id="11" class="blanca" value="ocupada">
+                <img src='img/Mario.png' class='ficha torre fBlanca torreB'>
+             </div>
+            <div id="21" class="negra" value="vacia"></div>
+            <div id="31" class="azul" value="vacia"></div>
+            <div id="41" class="roja" value="vacia"></div>
+            <div id="51" class="amarilla" value="vacia"></div>
+            <div id="61" class="negra" value="vacia"></div>
+            <div id="71" class="negra" value="vacia"></div>
+            <div id="81" class="negra" value="vacia"></div>				
+        </div>
+    
+        <section id="matadas">
+            <h1>Pregunta</h1>
+        </section>
+    
+        <section id="info">
+            <h1>Respuestas</h1>
+    
+        </section>
 
-<head>
-<meta charset="UTF-8"> 
-<title>Chessboard using Pure CSS and HTML</title>
-
-<style type="text/css">
-
-h1{
-    text-align: right;
-}
-
-.chessboard {
-    width: 640px;
-    height: 640px;
-    margin: 20px;
-    border: 25px solid #000000;
-}
-.black {
-    float: left;
-    width: 80px;
-    height: 80px;
-    background-color: #000000;
-      font-size:50px;
-    text-align:center;
-    display: table-cell;
-    vertical-align:middle;
-}
-
-.green {
-    float: left;
-    width: 80px;
-    height: 80px;
-    background-color: #ffffff;
-    font-size:50px;
-    text-align:center;
-    display: table-cell;
-    vertical-align:middle;
-}
-
-.red {
-    float: left;
-    width: 80px;
-    height: 80px;
-    background-color: #ff0000;
-    font-size:50px;
-    text-align:center;
-    display: table-cell;
-    vertical-align:middle;
-}
-
-.blue {
-    float: left;
-    width: 80px;
-    height: 80px;
-    background-color: #0000ff;
-    font-size:50px;
-    text-align:center;
-    display: table-cell;
-    vertical-align:middle;
-}
-
-.green {
-    float: left;
-    width: 80px;
-    height: 80px;
-    background-color: #008000;
-    font-size:50px;
-    text-align:center;
-    display: table-cell;
-    vertical-align:middle;
-}
-
-.yellow {
-    float: left;
-    width: 80px;
-    height: 80px;
-    background-color: #ffff00;
-    font-size:50px;
-    text-align:center;
-    display: table-cell;
-    vertical-align:middle;
-}
-
-</style>
-
-</head>
-
-<body>
-
-<div class="chessboard">
-    <!-- 1st -->
-    <div class="black"></div>
-    <div class="black"></div>
-    <div class="black"></div>
-    <div class="black"></div>
-    <div class="black"></div>
-    <div class="black"></div>
-    <div class="black"></div>
-    <div class="black"></div>
-    <!-- 2nd -->
-    <div class="black"></div>
-    <div class="black"></div>
-    <div class="black"></div>
-    <div class="black"></div>
-    <div class="black"></div>
-    <div class="black"></div>
-    <div class="black"></div>
-    <div class="green"></div>
-    <!-- 3th -->
-    <div class="yellow"></div>
-    <div class="blue"></div>
-    <div class="red"></div>
-    <div class="black"></div>
-    <div class="red"></div>
-    <div class="yellow"></div>
-    <div class="green"></div>
-    <div class="blue"></div>
-    <!-- 4st -->
-    <div class="blue"></div>
-    <div class="black"></div>
-    <div class="blue"></div>
-    <div class="black"></div>
-    <div class="green"></div>
-    <div class="black"></div>
-    <div class="black"></div>
-    <div class="black"></div>
-    <!-- 5th -->
-    <div class="green"></div>
-    <div class="black"></div>
-    <div class="red"></div>
-    <div class="black"></div>
-    <div class="yellow"></div>
-    <div class="black"></div>
-    <div class="black"></div>
-    <div class="black"></div>
-    <!-- 6th -->
-    <div class="blue"></div>
-    <div class="black"></div>
-    <div class="green"></div>
-    <div class="black"></div>
-    <div class="blue"></div>
-    <div class="black"></div>
-    <div class="black"></div>
-    <div class="black"></div>
-    <!-- 7th -->
-    <div class="red"></div>
-    <div class="black"></div>
-    <div class="yellow"></div>
-    <div class="black"></div>
-    <div class="yellow"></div>
-    <div class="black"></div>
-    <div class="black"></div>
-    <div class="black"></div>
-    <!-- 8th -->
-    <div class="black"></div>
-    <div class="black"></div>
-    <div class="blue"></div>
-    <div class="red"></div>
-    <div class="yellow"></div>
-    <div class="black"></div>
-    <div class="black"></div>
-    <div class="black"></div>
-</div>
-</body>
-</html>
+        <div id="turnos">
+            <img src="img/LogoTrivial2.png" width="320" height="150" display="block" margin="auto" />
+        </div>
+    
+    
+    
+    
+    </body>
+    </html>
