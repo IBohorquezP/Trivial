@@ -3,6 +3,7 @@ from fastapi.responses import HTMLResponse
 from src.user.controller import router as user
 from fastapi.staticfiles import StaticFiles
 from core.front import templates
+
 app = FastAPI()
 
 app.mount("/css", StaticFiles(directory="static/css"), name="css")
