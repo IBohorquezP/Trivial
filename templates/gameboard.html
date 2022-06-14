@@ -16,6 +16,7 @@
     
     <body>
         <div id="tablero" >
+            <!-- 1 -->
             <div id="18" class="negra" value="vacia"></div>
             <div id="28" class="negra" value="vacia"></div>
             <div id="38" class="negra" value="vacia"></div>
@@ -24,8 +25,11 @@
             <div id="68" class="negra" value="vacia"></div>
             <div id="78" class="negra" value="vacia"></div>
             <div id="88" class="blanca" value="vacia">
-                <img src='img/equisroja.png' class='ficha torre fBlanca torreB'>
+                {%if character.character_position == 25 %}
+                    <img src='img/equisroja.png' class='ficha torre fBlanca torreB'>
+                {%endif%}
             </div>	
+            <!-- 2 -->
             <br />
             <div id="17" class="negra" value="vacia"></div>
             <div id="27" class="negra" value="vacia"></div>
@@ -34,43 +38,116 @@
             <div id="57" class="negra" value="vacia"></div>
             <div id="67" class="negra" value="vacia"></div>
             <div id="77" class="negra" value="vacia"></div>
-            <div id="87" class="verde" value="vacia"> </div>	
+            <div id="87" class="verde" value="vacia">
+                {%if character.character_position == 24 %}
+                    <img src='{{character.skin_character}}' class='ficha torre fBlanca torreB'>
+                {%endif%}    
+            </div>
+            <!-- 3 -->	
             <br />
-            <div id="16" class="amarilla" value="vacia"> </div>
-            <div id="26" class="azul" value="vacia"> </div>
-            <div id="36" class="roja" value="vacia"> </div>
+            <div id="16" class="amarilla" value="vacia"> 
+                {%if character.character_position == 6 %}
+                    <img src='{{character.skin_character}}' class='ficha torre fBlanca torreB'>
+                {%endif%}
+            </div>
+            <div id="26" class="azul" value="vacia"> 
+                {%if character.character_position == 7 %}
+                    <img src='{{character.skin_character}}' class='ficha torre fBlanca torreB'>
+                {%endif%}
+            </div>
+            <div id="36" class="roja" value="vacia"> 
+                {%if character.character_position == 8 %}
+                    <img src='{{character.skin_character}}' class='ficha torre fBlanca torreB'>
+                {%endif%}
+            </div>
             <div id="46" class="negra" value="vacia"> </div>
-            <div id="56" class="roja" value="vacia"> </div>
-            <div id="66" class="amarilla" value="vacia"> </div>
-            <div id="76" class="verde" value="vacia"> </div>
-            <div id="86" class="azul" value="vacia"> </div>	
+            <div id="56" class="roja" value="vacia"> 
+                {%if character.character_position == 20 %}
+                    <img src='{{character.skin_character}}' class='ficha torre fBlanca torreB'>
+                {%endif%}
+            </div>
+            <div id="66" class="amarilla" value="vacia"> 
+                {%if character.character_position == 21 %}
+                    <img src='{{character.skin_character}}' class='ficha torre fBlanca torreB'>
+                {%endif%}
+            </div>
+            <div id="76" class="verde" value="vacia"> 
+                {%if character.character_position == 22 %}
+                    <img src='{{character.skin_character}}' class='ficha torre fBlanca torreB'>
+                {%endif%}
+            </div>
+            <div id="86" class="azul" value="vacia"> 
+                {%if character.character_position == 23 %}
+                    <img src='{{character.skin_character}}' class='ficha torre fBlanca torreB'>
+                {%endif%}
+            </div>	
+            <!-- 4 -->
             <br />
-            <div id="15" class="azul" value="vacia"> </div>
+            <div id="15" class="azul" value="vacia"> 
+                {%if character.character_position == 9 %}
+                    <img src='{{character.skin_character}}' class='ficha torre fBlanca torreB'>
+                {%endif%}
+            </div>
             <div id="25" class="negra" value="vacia"> </div>
-            <div id="35" class="azul" value="vacia"> </div>
+            <div id="35" class="azul" value="vacia">
+                {%if character.character_position == 10 %}
+                    <img src='{{character.skin_character}}' class='ficha torre fBlanca torreB'>
+                {%endif%}    
+            </div>
             <div id="45" class="negra" value="vacia"> </div>
-            <div id="55" class="verde" value="vacia"> </div>
+            <div id="55" class="verde" value="vacia"> 
+                {%if character.character_position == 19 %}
+                    <img src='{{character.skin_character}}' class='ficha torre fBlanca torreB'>
+                {%endif%}
+            </div>
             <div id="65" class="negra" value="vacia"> </div>
             <div id="75" class="negra" value="vacia"> </div>
             <div id="85" class="negra" value="vacia"> </div>	
+            <!-- 5 -->
             <br />
-            <div id="14" class="verde" value="vacia"> </div>
+            <div id="14" class="verde" value="vacia"> 
+                {%if character.character_position == 4 %}
+                    <img src='{{character.skin_character}}' class='ficha torre fBlanca torreB'>
+                {%endif%}
+            </div>
             <div id="24" class="negra" value="vacia"> </div>
-            <div id="34" class="roja" value="vacia"> </div>
+            <div id="34" class="roja" value="vacia"> 
+                {%if character.character_position == 11 %}
+                    <img src='{{character.skin_character}}' class='ficha torre fBlanca torreB'>
+                {%endif%}
+            </div>
             <div id="44" class="negra" value="vacia"> </div>
-            <div id="54" class="amarilla" value="vacia"> </div>
+            <div id="54" class="amarilla" value="vacia"> 
+                {%if character.character_position == 18 %}
+                    <img src='{{character.skin_character}}' class='ficha torre fBlanca torreB'>
+                {%endif%}
+            </div>
             <div id="64" class="negra" value="vacia"> </div>
             <div id="74" class="negra" value="vacia"> </div>
             <div id="84" class="negra" value="vacia"> </div>	
+            <!-- 6 -->
             <br />
-            <div id="13" class="azul" value="vacia"> </div>
+            <div id="13" class="azul" value="vacia"> 
+                {%if character.character_position == 3 %}
+                    <img src='{{character.skin_character}}' class='ficha torre fBlanca torreB'>
+                {%endif%}
+            </div>
             <div id="23" class="negra" value="vacia"> </div>
-            <div id="33" class="verde" value="vacia"> </div>
+            <div id="33" class="verde" value="vacia"> 
+                {%if character.character_position == 11 %}
+                    <img src='{{character.skin_character}}' class='ficha torre fBlanca torreB'>
+                {%endif%}
+            </div>
             <div id="43" class="negra" value="vacia"> </div>
-            <div id="53" class="azul" value="vacia"> </div>
+            <div id="53" class="azul" value="vacia"> 
+                {%if character.character_position == 17 %}
+                    <img src='{{character.skin_character}}' class='ficha torre fBlanca torreB'>
+                {%endif%}
+            </div>
             <div id="63" class="negra" value="vacia"> </div>
             <div id="73" class="negra" value="vacia"> </div>
             <div id="83" class="negra" value="vacia"> </div>	
+            <!-- 7 -->
             <br />
             <div id="12" class="roja" value="ocupada">
                 {%if character.character_position == 2 %}
@@ -79,12 +156,21 @@
                 <!--   <img src='img/peonB.png' class='ficha peonB fBlanca ' value='false'>-->
              </div>
             <div id="22" class="negra" value="vacia"></div>
-            <div id="32" class="amarilla" value="vacia"></div>
+            <div id="32" class="amarilla" value="vacia">
+                {%if character.character_position == 12 %}
+                    <img src='{{character.skin_character}}' class='ficha torre fBlanca torreB'>
+                {%endif%}
+            </div>
             <div id="42" class="negra" value="vacia"></div>
-            <div id="52" class="amarilla" value="vacia"></div>
+            <div id="52" class="amarilla" value="vacia">
+                {%if character.character_position == 16 %}
+                    <img src='{{character.skin_character}}' class='ficha torre fBlanca torreB'>
+                {%endif%}
+            </div>
             <div id="62" class="negra" value="vacia"></div>
             <div id="72" class="negra" value="vacia"></div>
             <div id="82" class="negra" value="vacia"></div>	
+            <!-- 8 -->
             <br />
             <div id="11" class="blanca" value="ocupada">
                 {%if character.character_position == 1 %}
@@ -92,9 +178,21 @@
                 {%endif%}
              </div>
             <div id="21" class="negra" value="vacia"></div>
-            <div id="31" class="azul" value="vacia"></div>
-            <div id="41" class="roja" value="vacia"></div>
-            <div id="51" class="amarilla" value="vacia"></div>
+            <div id="31" class="azul" value="vacia">
+                {%if character.character_position == 13 %}
+                    <img src='{{character.skin_character}}' class='ficha torre fBlanca torreB'>
+                {%endif%}
+            </div>
+            <div id="41" class="roja" value="vacia">
+                {%if character.character_position == 14 %}
+                    <img src='{{character.skin_character}}' class='ficha torre fBlanca torreB'>
+                {%endif%}
+            </div>
+            <div id="51" class="amarilla" value="vacia">
+                {%if character.character_position == 15 %}
+                    <img src='{{character.skin_character}}' class='ficha torre fBlanca torreB'>
+                {%endif%}
+            </div>
             <div id="61" class="negra" value="vacia"></div>
             <div id="71" class="negra" value="vacia"></div>
             <div id="81" class="negra" value="vacia"></div>				
