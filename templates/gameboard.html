@@ -5,7 +5,7 @@
             <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
     
             <link rel="stylesheet" type="text/css" href="{{ url_for('css', path='/estilos.css') }}">
-            <link rel="stylesheet" type="text/css" href="{{ url_for('css', path='/bootstrap.css') }}">
+            <link rel="stylesheet" type="text/css" href="{{ url_for('css', path='/bootstrap.css') }}">  
             <title>Trivial</title>
     </head>
     
@@ -201,8 +201,16 @@
         
         <section id="info">
             <h1>Respuestas</h1>
-            {% for answer_text in answers %}
-                <button type="button" class="btn btn-secondary">{{answer.answer_text}}</button>
+            {% for answer in answers %}
+                </Br>
+                <form action="/gameboard" method="post">
+                    <input type="hidden" name="is_correct" value="{{answer.is_correct}}">
+                    <input type="hidden" name="number_question" value="{{answer.number_question}}">
+                    <input type="hidden" name="id_answer" value="{{answer.id_answer}}">
+                    <button type="submit" class="btn btn-dark">{{answer.answer_text}}</button>
+                    </Br>
+                    </Br>
+                </form>
             {% endfor %}
         </section>
 

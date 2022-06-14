@@ -1,11 +1,5 @@
 
-@font-face{
-	font-family:"ev";
-	src:url("../fonts/CloisterBlack.ttf") format("truetype");
-	font-weight:normal;
-    font-style:normal;	
 
-}
 .blanca,.negra, .amarilla, .roja, .azul, .verde{
 	position: relative;
 	width: 4em;
@@ -45,7 +39,7 @@
 }
 
 #tablero{
-	margin: 0;
+	margin: 5;
 	padding: 0;
 	z-index: 0;
 	width: auto;
@@ -79,7 +73,8 @@
 	position: relative;
 	width: 20em;
 	max-width: 20em;
-	height: 26.5em;
+	height: 24em;
+	top: 2;
 	border: 1px solid black;
 	background:-moz-linear-gradient(#ffffff,rgb(123, 123, 123));
 	background:-webkit-linear-gradient(#ffffff,rgb(108, 108, 108));
@@ -158,8 +153,8 @@ font-size: 3em;
 	width: 40.5em;
 	height:10em;
 	background:#222; 
-	top:27.5em;
-	left: 38em;
+	top:24.5em;
+	left: 34.5em;
 	display: flex;
  	justify-content: center;
 
