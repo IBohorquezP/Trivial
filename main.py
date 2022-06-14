@@ -37,6 +37,7 @@ async def register(request: Request):
     return templates.TemplateResponse("register.html", {"request": request, "id": 1})
 
 @app.post("/gameboard", response_class=HTMLResponse)
+<<<<<<< HEAD
 def gameboard(request: Request, selected_character: str = Form(), username: str = Form(), id_answer = Form()):
     #if(id_answer != -1):
         #answer = Answer.show(id_answer)
@@ -44,6 +45,15 @@ def gameboard(request: Request, selected_character: str = Form(), username: str 
             #Character.updatePosition(selected_character)
     #else:
         #Character.updateUsername(username=username, id_character=selected_character)
+=======
+def gameboard(request: Request, selected_character: str = Form(), username: str = Form(), id_answer: int = Form()):
+    if(id_answer != -1):
+        answer = Answer.show(id_answer)
+        if(answer.is_correct == 1):
+            Character.updatePosition(selected_character)
+    else:
+        Character.updateUsername(username=username, id_character=selected_character)
+>>>>>>> 69ac33e3f43c649cd124f1061d7308e7a16b06c7
 
     character = Character.show(selected_character)
     question = Question.random()
@@ -54,4 +64,3 @@ def gameboard(request: Request, selected_character: str = Form(), username: str 
         "question": question,
         "answers": answers
     })
-
