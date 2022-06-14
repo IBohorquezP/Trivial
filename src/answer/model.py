@@ -26,3 +26,10 @@ class Answer:
             cursor.execute(sql)
             result = cursor.fetchall()
             return result
+
+    def show(id_answer):
+         with database.cursor() as cursor:
+            sql = f"SELECT * FROM trivial.answer where id_answer = '{id_answer}' "
+            cursor.execute(sql)
+            result = cursor.fetchone()
+            return result
