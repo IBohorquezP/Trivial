@@ -19,10 +19,17 @@ class User:
             result = cursor.fetchall()
             return result
 
-    def login(username, possword):
+    def login(username, password):
         with database.cursor() as cursor:
             # Read a single record
-            sql = f"SELECT * FROM user where username like '{username}' and password like '{possword}'"
+            sql = f"SELECT * FROM user where username like '{username}' and password like '{password}'"
             cursor.execute(sql)
             result = cursor.fetchone()
             return result != None
+
+    def register_user(username, password):
+        with database.cursor() as cursor:
+            # Read a single record
+            sql = f"INSERT INTO user(username,password,type) VALUES('{username}','{password}','player')"
+            cursor.execute(sql)
+            database.commit()

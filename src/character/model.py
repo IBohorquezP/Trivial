@@ -30,7 +30,6 @@ class Character:
         with database.cursor() as cursor:
             sql = f"UPDATE trivial.character set username = null where username = '{username}' "
             cursor.execute(sql)
-            database.commit()
             
             sql = f"UPDATE trivial.character set username = '{username}' where id_character = '{id_character}' "
             cursor.execute(sql)
@@ -41,3 +40,4 @@ class Character:
         with database.cursor() as cursor:
             sql = f"UPDATE trivial.character set position = position + 1 where id_character = '{id_character}' "
             cursor.execute(sql)
+            database.commit()
