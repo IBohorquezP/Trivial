@@ -1,6 +1,7 @@
+import random
 from core.db_connection import database
 
-class Character:
+class Question:
     database = database
 
     def __init__(self, username, password, type):
@@ -14,15 +15,15 @@ class Character:
     def index():
         with database.cursor() as cursor:
             # Read a single record
-            sql = "SELECT * FROM trivial.character"
+            sql = "SELECT * FROM trivial.question"
             cursor.execute(sql)
             result = cursor.fetchall()
             return result
-    
-    def show(id_character):
+
+    def random():
          with database.cursor() as cursor:
-            sql = f"SELECT * FROM trivial.character where id_character = '{id_character}' "
+            number_question = random.randint(1,48)
+            sql = f"SELECT * FROM trivial.question where number_question = {number_question} "
             cursor.execute(sql)
             result = cursor.fetchone()
             return result
-    

@@ -1,6 +1,6 @@
 from core.db_connection import database
 
-class Character:
+class Answer:
     database = database
 
     def __init__(self, username, password, type):
@@ -14,15 +14,15 @@ class Character:
     def index():
         with database.cursor() as cursor:
             # Read a single record
-            sql = "SELECT * FROM trivial.character"
+            sql = "SELECT * FROM trivial.answer"
             cursor.execute(sql)
             result = cursor.fetchall()
             return result
-    
-    def show(id_character):
-         with database.cursor() as cursor:
-            sql = f"SELECT * FROM trivial.character where id_character = '{id_character}' "
+
+    def show_by_question(number_question):
+        with database.cursor() as cursor:
+            # Read a single record
+            sql = f"SELECT * FROM trivial.answer where number_question = '{number_question}'"
             cursor.execute(sql)
-            result = cursor.fetchone()
-            return result
-    
+            result = cursor.fetchall()
+            return result != None
