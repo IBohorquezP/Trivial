@@ -28,6 +28,8 @@
                 <div class="selector">
                     <form action="/gameboard" method="post">
                         <input type="hidden" name="selected_character" value="{{c.id_character}}">
+                        <input type="hidden" name="username" value="{{username}}">
+                        <input type="hidden" name="id_answer" value="-1">
                         <button type="submit">go with this!</button>
                     </form>
                 </div>

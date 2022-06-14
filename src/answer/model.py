@@ -25,4 +25,4 @@ class Answer:
             sql = f"SELECT * FROM trivial.answer where number_question = '{number_question}'"
             cursor.execute(sql)
             result = cursor.fetchall()
-            return result != None
+            return result
