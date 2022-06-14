@@ -67,6 +67,7 @@
 
 #matadas{
 	position: relative;
+	text-align: center;
 	width: 20em;
 	max-width: 20em;
 	height: 15em;
@@ -250,4 +251,10 @@ h2{
     text-align: center; 
     top: 10%;
 	font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+h4{
+	font-size: 1em;
+	text-align: center;
+	font-family:Verdana, Geneva, Tahoma, sans-serif;
 }

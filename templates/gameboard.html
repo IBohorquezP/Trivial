@@ -5,12 +5,7 @@
             <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
     
             <link rel="stylesheet" type="text/css" href="{{ url_for('css', path='/estilos.css') }}">
-    
-            <script type="text/javascript" src="js/jquery.js"></script>
-            <script type="text/javascript" src="js/ajedrez.js"></script>
-            <script type="text/javascript" src="js/jquery-ui-1.9.2.custom.min.js"></script>
-            <script type="text/javascript" src="js/touch.js"></script>	
-            <link rel="stylesheet" type="text/css" href="{{ url_for('css', path='/jquery-ui-1.9.2.custom.min.css') }}">
+            <link rel="stylesheet" type="text/css" href="{{ url_for('css', path='/bootstrap.css') }}">
             <title>Trivial</title>
     </head>
     
@@ -27,6 +22,7 @@
             <div id="88" class="blanca" value="vacia">
                 {%if character.character_position == 25 %}
                     <img src='img/trofeo.png' class='ficha torre fBlanca torreB'>
+                    
                 {%endif%}
             </div>	
             <!-- 2 -->
@@ -198,23 +194,17 @@
             <div id="81" class="negra" value="vacia"></div>				
         </div>
         
-        {% for text in question %}
         <section id="matadas">
             <h1>Pregunta</h1>
-            <p>{{text}}</p>
+            <h4>{{question.text}}</h4>
         </section>
-        {% endfor %}
         
-        {% for answer_text in answers %}
         <section id="info">
             <h1>Respuestas</h1>
-            <button type="button" class="btn btn-secondary">{{answer_text}}</button>
-            </br>
-            <button type="button" class="btn btn-secondary">{{answer_text}}</button>
-            </br>
-            <button type="button" class="btn btn-secondary">{{answer_text}}</button>
+            {% for answer_text in answers %}
+                <button type="button" class="btn btn-secondary">{{answer.answer_text}}</button>
+            {% endfor %}
         </section>
-        {% endfor %}
 
         <div id="turnos">
             <img src="img/LogoTrivial2.png" width="320" height="150" display="block" margin="auto" />
