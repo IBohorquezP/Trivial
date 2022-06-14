@@ -18,3 +18,10 @@ class Character:
             cursor.execute(sql)
             result = cursor.fetchall()
             return result
+    
+    def show(id_character):
+         with database.cursor() as cursor:
+            sql = f"SELECT * FROM trivial.character where id_character = '{id_character}' "
+            cursor.execute(sql)
+            result = cursor.fetchone()
+            return result

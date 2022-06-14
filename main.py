@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Request
+from fastapi import FastAPI, Request, Form
 from fastapi.responses import HTMLResponse
 from src.user.controller import router as user
 from src.character.model import Character
@@ -34,6 +34,7 @@ async def statistics(request: Request):
 async def register(request: Request):
     return templates.TemplateResponse("register.html", {"request": request, "id": 1})
 
-@app.get("/gameboard", response_class=HTMLResponse)
-async def gameboard(request: Request):
-    return templates.TemplateResponse("gameboard.html", {"request": request, "id": 1})
+@app.post("/gameboard", response_class=HTMLResponse)
+def gameboard(request: Request, selected_character: str = Form()):
+    character = Character.show(selected_character)
+    return templates.TemplateResponse("gameboard.html", {"request": request, "character": character})

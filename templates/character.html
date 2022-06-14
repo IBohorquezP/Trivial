@@ -26,7 +26,10 @@
                     <h2>{{c.id_character}}</h2>
                 </div>
                 <div class="selector">
-                    <button>go with this!</button>
+                    <form action="/gameboard" method="post">
+                        <input type="hidden" name="selected_character" value="{{c.id_character}}">
+                        <button type="submit">go with this!</button>
+                    </form>
                 </div>
     
             </div>

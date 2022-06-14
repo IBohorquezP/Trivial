@@ -73,6 +73,9 @@
             <div id="83" class="negra" value="vacia"> </div>	
             <br />
             <div id="12" class="roja" value="ocupada">
+                {%if character.character_position == 2 %}
+                    <img src='{{character.skin_character}}' class='ficha torre fBlanca torreB'>
+                {%endif%}
                 <!--   <img src='img/peonB.png' class='ficha peonB fBlanca ' value='false'>-->
              </div>
             <div id="22" class="negra" value="vacia"></div>
@@ -84,7 +87,9 @@
             <div id="82" class="negra" value="vacia"></div>	
             <br />
             <div id="11" class="blanca" value="ocupada">
-                <img src='img/Mario.png' class='ficha torre fBlanca torreB'>
+                {%if character.character_position == 1 %}
+                    <img src='{{character.skin_character}}' class='ficha torre fBlanca torreB'>
+                {%endif%}
              </div>
             <div id="21" class="negra" value="vacia"></div>
             <div id="31" class="azul" value="vacia"></div>
