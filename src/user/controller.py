@@ -53,12 +53,34 @@ async def login(request: Request, username: str = Form(), password: str = Form()
             "characters": Character.index(), 
             "username": username
         })
-    return templates.TemplateResponse("login.html", {
-        "request": request,
-        "username": username,
-        "password": password,
-        "failed_login": is_authenticated
-    })
+    if(User.show(username)==None):
+        return templates.TemplateResponse("login.html", {
+            "request": request,
+            "username": username,
+            "password": password,
+            "failed_verify_password": False,
+            "user_does_not_exist": True,
+            "failed_login": is_authenticated
+            
+        })    
+    if(User.show_password(username,password)==None):
+            return templates.TemplateResponse("login.html", {
+                "request": request,
+                "username": username,
+                "password": password,
+                "failed_verify_password": True,
+                "user_does_not_exist": False,
+                "failed_login": is_authenticated
+            })    
+    else:
+        return templates.TemplateResponse("login.html", {
+            "request": request,
+            "username": username,
+            "password": password,
+            "user_does_not_exist": False,
+            "failed_login": is_authenticated
+        })
+
  
 @router.post("/register",  response_class=HTMLResponse)
 async def register_user(request: Request, username: str = Form(), password: str = Form(), verify_password: str = Form()):
@@ -76,7 +98,7 @@ async def register_user(request: Request, username: str = Form(), password: str 
             "username": username,
             "user-exist": False,
             "failed_verify_password": True
-        })
+        })  
 
     User.register_user(username,password)
     return templates.TemplateResponse("login.html",{

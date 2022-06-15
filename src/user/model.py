@@ -27,6 +27,14 @@ class User:
             result = cursor.fetchone()
             return result
 
+    def show_password(username,password):
+        with database.cursor() as cursor:
+            # Read a single record
+            sql = f"SELECT * FROM user where username like '{username}' and password like '{password}'"
+            cursor.execute(sql)
+            result = cursor.fetchone()
+            return result        
+
 
     def login(username, password):
         with database.cursor() as cursor:

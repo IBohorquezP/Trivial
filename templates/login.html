@@ -22,6 +22,17 @@
         <a href="{{url_for('register')}}">Go to registration</a>
 
     </div>
+    {%if user_does_not_exist%}
+    <div class="alert alert-danger" role="alert">
+        El usuario no existe!
+    </div>
+    {%endif%}
+
+    {%if failed_verify_password%}
+    <div class="alert alert-danger" role="alert">
+        La contraseña es incorrecta!
+    </div>
+    {%endif%}
     <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
 </form>
 {% endblock %}
