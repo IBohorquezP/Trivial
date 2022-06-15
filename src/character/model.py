@@ -26,7 +26,7 @@ class Character:
             result = cursor.fetchone()
             return result
     
-    def updateUsername(username, id_character):
+    def update_username(username, id_character):
         with database.cursor() as cursor:
             sql = f"UPDATE trivial.character set username = null where username = '{username}' "
             cursor.execute(sql)
@@ -36,8 +36,21 @@ class Character:
             database.commit()
 
 
-    def updatePosition(id_character):
+    def update_position(id_character):
         with database.cursor() as cursor:
-            sql = f"UPDATE trivial.character set position = position + 1 where id_character = '{id_character}' "
+            sql = f"UPDATE trivial.character set character_position = character_position + 1 where id_character = '{id_character}' "
             cursor.execute(sql)
             database.commit()
+
+    def reset_position(id_character):
+        with database.cursor() as cursor:
+            sql = f"UPDATE trivial.character set character_position = 1 where id_character = '{id_character}' "
+            cursor.execute(sql)
+            database.commit()
+
+    def reset_user(id_character):
+        with database.cursor() as cursor:
+            sql = f"UPDATE trivial.character set username = null where id_character = '{id_character}' "
+            cursor.execute(sql)
+            database.commit()
+           

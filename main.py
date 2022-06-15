@@ -8,6 +8,7 @@ from src.character.model import Character
 from src.character.controller import router as character
 from fastapi.staticfiles import StaticFiles
 from core.front import templates
+from src.stats.model import Stat
 
 app = FastAPI()
 
@@ -35,15 +36,18 @@ async def statistics(request: Request):
 @app.get("/register", response_class=HTMLResponse)
 async def register(request: Request):
     return templates.TemplateResponse("register.html", {"request": request, "id": 1})
-
+ 
 @app.post("/gameboard", response_class=HTMLResponse)
-def gameboard(request: Request, selected_character: str = Form(), username: str = Form(), id_answer: int = Form()):
+def gameboard(request: Request, selected_character: str = Form(), username: str = Form(), id_answer: int = Form(), final_square: bool = Form()):
     if(id_answer != -1):
         answer = Answer.show(id_answer)
-        if(answer.is_correct == 1):
-            Character.updatePosition(selected_character)
+        if(answer["is_correct"] == 1):
+            Character.update_position(selected_character)
+            if(final_square == True):
+                Stat.win_game(username)
+            
     else:
-        Character.updateUsername(username=username, id_character=selected_character)
+        Character.update_username(username=username, id_character=selected_character)
 
     character = Character.show(selected_character)
     question = Question.random()
@@ -52,5 +56,12 @@ def gameboard(request: Request, selected_character: str = Form(), username: str 
         "request": request,
         "character": character,
         "question": question,
-        "answers": answers
+        "answers": answers,
+        "username": username,
     })
+
+@app.post("/end_game", response_class=HTMLResponse)
+def end_game(request: Request,  selected_character: str = Form()):
+    Character.reset_position(selected_character)
+    Character.reset_user(selected_character)
+    return templates.TemplateResponse("login.html", {"request": request, "id": 1})

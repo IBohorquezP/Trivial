@@ -22,7 +22,7 @@
             <div id="88" class="blanca" value="vacia">
                 {%if character.character_position == 25 %}
                     <img src='img/trofeo.png' class='ficha torre fBlanca torreB'>
-                    
+                    <input type="hidden" form="form" name="final_square" value="True">
                 {%endif%}
             </div>	
             <!-- 2 -->
@@ -195,23 +195,45 @@
         </div>
         
         <section id="matadas">
-            <h1>Pregunta</h1>
-            <h4>{{question.text}}</h4>
+            {%if character.character_position != 25 %}
+                <h1>Pregunta</h1>
+                <h4>{{question.text}}</h4>
+            {% endif %}
+            {%if character.character_position == 25 %}
+                <h1>¡FELICIDADES, HAS GANADO!</h1>
+            {% endif %}
+
         </section>
         
         <section id="info">
+            {%if character.character_position != 25 %}
             <h1>Respuestas</h1>
-            {% for answer in answers %}
-                </Br>
-                <form action="/gameboard" method="post">
-                    <input type="hidden" name="is_correct" value="{{answer.is_correct}}">
-                    <input type="hidden" name="number_question" value="{{answer.number_question}}">
-                    <input type="hidden" name="id_answer" value="{{answer.id_answer}}">
-                    <button type="submit" class="btn btn-dark">{{answer.answer_text}}</button>
+                {% for answer in answers %}
                     </Br>
-                    </Br>
-                </form>
-            {% endfor %}
+                    <form action="/gameboard" id="form" method="post">
+                        {%if character.character_position != 24 %}
+                            <input type="hidden" name="final_square" value="False">
+                        {%else%}
+                            <input type="hidden" name="final_square" value="True">
+                        {%endif%}
+
+                        <input type="hidden" name="selected_character" value="{{character.id_character}}">
+                        <input type="hidden" name="id_answer" value="{{answer.id_answer}}">
+                        <input type="hidden" name="username" value="{{username}}">
+                        <button type="submit" class="btn btn-dark">{{answer.answer_text}}</button>
+                        </Br>
+                        </Br>
+                    </form>
+                {% endfor %}
+            {% endif %}
+            {%if character.character_position == 25%}
+            <form action="/end_game" id="form" method="post">
+                <input type="hidden" name="selected_character" value="{{character.id_character}}">
+                <button type="submit" class="btn btn-dark">Salir del juego</button>
+            </form>
+            {% endif %}
+
+
         </section>
 
         <div id="turnos">

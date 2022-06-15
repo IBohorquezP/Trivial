@@ -15,9 +15,9 @@ router = APIRouter(
 async def index_users():
     return User.index()
 
-# @router.get("/{id}")
-# async def read_user(id: str):
-#     return User.show(id)
+@router.get("/{id}")
+async def read_user(id: str):
+    return User.show(id)
 
 # @router.post("/")
 # async def create_user(params):
@@ -47,7 +47,7 @@ async def login(request: Request, username: str = Form(), password: str = Form()
         "failed_login": is_authenticated
     })
  
-@router.post("/register_user",  response_class=HTMLResponse)
+@router.post("/register",  response_class=HTMLResponse)
 async def register_user(request: Request, username: str = Form(), password: str = Form(), verify_password: str = Form()):
     if(User.show(username)):
         return templates.TemplateResponse("register.html", {

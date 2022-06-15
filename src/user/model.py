@@ -19,6 +19,15 @@ class User:
             result = cursor.fetchall()
             return result
 
+    def show(username):
+        with database.cursor() as cursor:
+            # Read a single record
+            sql = f"SELECT * FROM user where username = '{username}'"
+            cursor.execute(sql)
+            result = cursor.fetchone()
+            return result
+
+
     def login(username, password):
         with database.cursor() as cursor:
             # Read a single record
