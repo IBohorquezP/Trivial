@@ -29,9 +29,10 @@ async def character(request: Request):
     print(Character.index())
     return templates.TemplateResponse("character.html", {"request": request, "characters": Character.index(), "id": 1})
 
-@app.get("/statistics", response_class=HTMLResponse)
-async def statistics(request: Request):
-    return templates.TemplateResponse("statistics.html", {"request": request, "id": 1})
+@app.post("/statistics", response_class=HTMLResponse)
+async def statistics(request: Request, username = Form()):
+    stat = Stat.find(username)
+    return templates.TemplateResponse("statistics.html", {"request": request, "id": 1, "stat": stat})
 
 @app.get("/register", response_class=HTMLResponse)
 async def register(request: Request):

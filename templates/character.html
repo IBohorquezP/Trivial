@@ -42,7 +42,11 @@
         <div class="row align-items-center justify-content-xl-between mt-5">
             <div class="col-xl-12 m-auto text-center">
               <div class="copyright">
-                <a href="{{url_for('statistics')}}">Go to Player Statistics</a>
+                <form action="/statistics" method="post">
+                    <input type="hidden" name="username" value="{{username}}">
+                    <button type="submit" class="btn btn-primary">Go to Player Statistics</button>
+                </form>
+
               </div>
             </div>
         </div>

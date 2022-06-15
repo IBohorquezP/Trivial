@@ -27,3 +27,11 @@ class Stat:
             
             cursor.execute(sql)
             database.commit()
+
+    def find(username):
+        with database.cursor() as cursor:
+            
+            sql = f"select * FROM statistics where username = '{username}'"
+            cursor.execute(sql)
+            result = cursor.fetchone()
+            return result

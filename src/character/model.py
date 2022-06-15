@@ -14,7 +14,7 @@ class Character:
     def index():
         with database.cursor() as cursor:
             # Read a single record
-            sql = "SELECT * FROM trivial.character"
+            sql = "SELECT * FROM trivial.character where username is null"
             cursor.execute(sql)
             result = cursor.fetchall()
             return result

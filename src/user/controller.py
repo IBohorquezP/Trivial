@@ -1,5 +1,7 @@
 from fastapi.responses import HTMLResponse
 from fastapi import APIRouter, Form, Request
+from src.answer.model import Answer
+from src.question.model import Question
 
 from src.character.model import Character
 from .model import User
@@ -35,6 +37,17 @@ async def read_user(id: str):
 async def login(request: Request, username: str = Form(), password: str = Form()):
     is_authenticated = User.login(username,password)
     if (is_authenticated):
+        character = User.find_character(username)
+        if(character):
+            question = Question.random()
+            answers = Answer.show_by_question(question["number_question"])
+            return templates.TemplateResponse("gameboard.html", {
+                "request": request,
+                "character": character,
+                "question": question,
+                "answers": answers,
+                "username": username,
+            })
         return templates.TemplateResponse("character.html",{
             "request": request,
             "characters": Character.index(), 

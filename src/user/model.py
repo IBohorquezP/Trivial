@@ -42,3 +42,11 @@ class User:
             sql = f"INSERT INTO user(username,password,type) VALUES('{username}','{password}','player')"
             cursor.execute(sql)
             database.commit()
+
+    def find_character(username):
+        with database.cursor() as cursor:
+            # Read a single record
+            sql = f"SELECT * FROM trivial.character where username like '{username}'"
+            cursor.execute(sql)
+            result = cursor.fetchone()
+            return result 
