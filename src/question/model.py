@@ -22,7 +22,7 @@ class Question:
 
     def random():
          with database.cursor() as cursor:
-            number_question = random.randint(1,48)
+            number_question = random.randint(1,64)
             sql = f"SELECT * FROM trivial.question where number_question = {number_question} "
             cursor.execute(sql)
             result = cursor.fetchone()
